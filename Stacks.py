@@ -1,39 +1,40 @@
 class Stack:
     def __init__(self):
-        self.items = []  # Initialize an empty list to represent the stack
+        self.stack=[]
+    
+    def is_empty(self):
+        return len(self.stack) == 0
 
-    def isEmpty(self):
-        return len(self.items) == 0  # Check if the stack is empty
-
-    def push(self, item):
-        self.items.append(item)  # Add an item to the top of the stack
-
+    def push(self,element):
+        return self.stack.append(element)
+    
     def pop(self):
-        if not self.isEmpty():
-            return self.items.pop()  # Remove and return the top item from the stack
-
+        if not self.is_empty():
+            return self.stack.pop()
+        else:
+            print("stack is empty")
+            
     def peek(self):
-        if not self.isEmpty():
-            return self.items[-1]  # Return the top item without removing it
+        if not self.is_empty():
+            return self.stack[-1]
+        else :
+            print("stack is empty")
+            
+    def display(self):
+        if not self.is_empty():
+            print("Current Stack:", self.stack)
+        else:
+            print("Stack is empty!")
+            
+s = Stack()
+s.push(10)
+s.push(20)
+s.push(30)
 
-    def size(self):
-        return len(self.items)  # Return the size of the stack
-
-# Example usage:
-stack = Stack()
-stack.push(10)
-stack.push(20)
-stack.push(30)
-
-print("Top element:", stack.peek())  # Output: 30
-print("Stack size:", stack.size())  # Output: 3
-
-print("Popped element:", stack.pop())  # Output: 30
-print("Stack after pop:", stack.size())  # Output: 2
-
-
-
-
+s.display() 
+print("Popped item:", s.pop())  # Output: 30
+s.display() 
+print("peek element " , s.peek())
 
 
 # Stack using a list
